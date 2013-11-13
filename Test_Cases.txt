@@ -1,0 +1,21 @@
+ASSUMPTIONS:
+First line of csv/input file is always treated as HEADER and rest all as DATA.
+HEADER is used to instantiate objects from class CompanyName one per company. DATA is parsed and fed to object attributes to build up complete comany instance with all data in it.  
+ 
+ 
+TEST CASES:
+-If negative share values are provided min/max caluculations might not return accurate answer as behaviour is dependent on default python min() function from python __builtins__.
+-Again the bahavious string in share value might return traceback or worng manipulations as data is operated by __builtins__ min() and max() funtions.
+-module will remember the no of items and HEADER and match them with DATA. Values in instances are only added if HEADER item count match DATA itm count in row list.
+
+
+ENHANCEMENTS:
+-If input file size is big and system memory is low, machine may run out of memory as all company data is loaded into instances per comapny. To improve scalability a RDBMS maybe a better option. 
+-Dynamically instance creation and variable assignation at runtime could save no of lines in code.
+
+
+PROBLEMS:
+-Was not able to dynamically and automatically instantiate objects and assign them a instance variable. Tryed 
+inst = [ instan for k in range(2,len(row))]
+but it returns a list of instance references in memory and was not able to access instances individually/uniquely by name for querying purposes. 
+
